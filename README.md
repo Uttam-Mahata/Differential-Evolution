@@ -43,9 +43,14 @@ The DE optimization iteratively refines a **population** of candidate solutions.
    
 
 2. **Crossover**: Create a **trial vector** by combining elements from $w_i$ and the mutation vector based on the crossover rate $CR$:
+   $$
+\text{trial}_j = \begin{cases} 
+\text{mutation}_j & \text{if } \text{rand} < CR \\ 
+w_{i,j} & \text{otherwise}
+\end{cases}
+$$
 
-  
-   $$\text{trial}_j = \begin{cases} \text{mutation}_j & \text{if } \text{rand} < CR \\ w_{i,j} & \text{otherwise}\end{cases}$$
+
 
 4. **Selection**: Evaluate both the trial vector and the original vector. Replace $w_i$ with the trial vector if the trial vector yields a lower RMSE.
 
