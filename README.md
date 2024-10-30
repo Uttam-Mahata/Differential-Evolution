@@ -1,6 +1,3 @@
-Here's a mathematical write-up for your README, explaining the steps and mathematical foundations of the Differential Evolution (DE) optimization with polynomial modeling:
-
----
 
 # Differential Evolution Optimization of Polynomial Weights
 
@@ -48,13 +45,9 @@ The DE optimization iteratively refines a **population** of candidate solutions.
 2. **Crossover**: Create a **trial vector** by combining elements from $w_i$ and the mutation vector based on the crossover rate $CR$:
 
   
-   $$\text{trial}_j = 
-   \begin{cases} 
-      \text{mutation}_j & \text{if } \text{rand} < CR \\
-      w_{i,j} & \text{otherwise}
-   \end{cases}$$
+   $$\text{trial}_j = \begin{cases} \text{mutation}_j & \text{if } \text{rand} < CR \\ w_{i,j} & \text{otherwise}\end{cases}$$
 
-3. **Selection**: Evaluate both the trial vector and the original vector. Replace $w_i$ with the trial vector if the trial vector yields a lower RMSE.
+4. **Selection**: Evaluate both the trial vector and the original vector. Replace $w_i$ with the trial vector if the trial vector yields a lower RMSE.
 
 #### Termination:
 After a fixed number of generations, the best vector (weights $w$) with the lowest RMSE is considered the optimal solution.
