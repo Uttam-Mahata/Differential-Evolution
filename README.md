@@ -12,7 +12,7 @@ The polynomial model used here can be represented as:
 
 $$
 f(x; w) = \sum_{i=0}^{n} w_i \cdot x^i
-\]
+$$
 
 where:
 - $ f(x; w) $ is the model's predicted output for an input $ x $,
@@ -25,7 +25,7 @@ The **Root Mean Square Error (RMSE)** between the model's predictions $ y_{\text
 
 $$
 \text{RMSE} = \sqrt{\frac{1}{N} \sum_{j=1}^{N} (y_{\text{pred}}(x_j) - y_{\text{noisy}}(x_j))^2}
-\]
+$$
 
 where $ N $ is the number of data points. The goal is to find $ w $ that minimizes RMSE.
 
@@ -43,7 +43,7 @@ The DE optimization iteratively refines a **population** of candidate solutions.
 
    $$
    \text{mutation} = w_{r1} + F \cdot (w_{r2} - w_{r3})
-   \]
+   $$
 
 2. **Crossover**: Create a **trial vector** by combining elements from $ w_i $ and the mutation vector based on the crossover rate $ CR $:
 
@@ -53,7 +53,7 @@ The DE optimization iteratively refines a **population** of candidate solutions.
       \text{mutation}_j & \text{if } \text{rand} < CR \\
       w_{i,j} & \text{otherwise}
    \end{cases}
-   \]
+   $$
 
 3. **Selection**: Evaluate both the trial vector and the original vector. Replace $ w_i $ with the trial vector if the trial vector yields a lower RMSE.
 
