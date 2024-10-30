@@ -10,9 +10,9 @@ This project aims to optimize the weights of a polynomial model using **Differen
 
 The polynomial model used here can be represented as:
 
-```math
-f(x; w) = \sum_{i=0}^{n} w_i \cdot x^i
-```
+
+$$f(x; w) = \sum_{i=0}^{n} w_i \cdot x^i$$
+
 
 where:
 - $f(x; w)$ is the model's predicted output for an input $x$,
@@ -23,9 +23,9 @@ where:
 
 The **Root Mean Square Error (RMSE)** between the model's predictions $y_{\text{pred}}$ and the noisy observed data $y_{\text{noisy}}$ is calculated as:
 
-```math
-\text{RMSE} = \sqrt{\frac{1}{N} \sum_{j=1}^{N} (y_{\text{pred}}(x_j) - y_{\text{noisy}}(x_j))^2}
-```
+
+$$\text{RMSE} = \sqrt{\frac{1}{N} \sum_{j=1}^{N} (y_{\text{pred}}(x_j) - y_{\text{noisy}}(x_j))^2}$$
+
 
 where $N$ is the number of data points. The goal is to find $w$ that minimizes RMSE.
 
@@ -41,19 +41,18 @@ The DE optimization iteratively refines a **population** of candidate solutions.
 
 1. **Mutation**: For each candidate vector $w_i$, select three other vectors $w_{r1}, w_{r2}, w_{r3}$ and create a **mutation vector** as:
 
-   ```math
-   \text{mutation} = w_{r1} + F \cdot (w_{r2} - w_{r3})
-   ```
+   
+   $$\text{mutation} = w_{r1} + F \cdot (w_{r2} - w_{r3})$$
+   
 
 2. **Crossover**: Create a **trial vector** by combining elements from $w_i$ and the mutation vector based on the crossover rate $CR$:
 
-   ```math
-   \text{trial}_j = 
+  
+   $$\text{trial}_j = 
    \begin{cases} 
       \text{mutation}_j & \text{if } \text{rand} < CR \\
       w_{i,j} & \text{otherwise}
-   \end{cases}
-   ```
+   \end{cases}$$
 
 3. **Selection**: Evaluate both the trial vector and the original vector. Replace $w_i$ with the trial vector if the trial vector yields a lower RMSE.
 
