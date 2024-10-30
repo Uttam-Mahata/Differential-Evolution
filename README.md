@@ -1,5 +1,4 @@
 
-
 # Differential Evolution Optimization of Polynomial Weights
 
 This project aims to optimize the weights of a polynomial model using **Differential Evolution (DE)** to best fit a noisy dataset sampled from the function $\cos(x)$. The optimization minimizes the Root Mean Square Error (RMSE) between the polynomial model predictions and the noisy data.
@@ -44,22 +43,23 @@ The DE optimization iteratively refines a **population** of candidate solutions.
    
 
 2. **Crossover**: Create a **trial vector** by combining elements from $w_i$ and the mutation vector based on the crossover rate $CR$:
+```math
+\text{trial}_j = \begin{cases} 
+\text{mutation}_j & \text{if } \text{rand} < CR \\ 
+w_{i,j} & \text{otherwise}
+\end{cases}
+```
 
-  
-   $$\text{trial}_j = 
-   \begin{cases} 
-      \text{mutation}_j & \text{if } \text{rand} < CR \\
-      w_{i,j} & \text{otherwise}
-   \end{cases}$$
 
-3. **Selection**: Evaluate both the trial vector and the original vector. Replace $w_i$ with the trial vector if the trial vector yields a lower RMSE.
-$$
+
+4. **Selection**: Evaluate both the trial vector and the original vector. Replace $w_i$ with the trial vector if the trial vector yields a lower RMSE.
+```math
 w_i = 
 \begin{cases} 
 \text{trial}_i & \text{if } \text{RMSE}(\text{trial}_i) < \text{RMSE}(w_i) \\
 w_i & \text{otherwise}
 \end{cases}
-$$
+```
 
 #### Termination:
 After a fixed number of generations, the best vector (weights $w$) with the lowest RMSE is considered the optimal solution.
