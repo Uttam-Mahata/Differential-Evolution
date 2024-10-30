@@ -1,6 +1,4 @@
-Here's a mathematical write-up for your README, explaining the steps and mathematical foundations of the Differential Evolution (DE) optimization with polynomial modeling:
 
----
 
 # Differential Evolution Optimization of Polynomial Weights
 
@@ -55,6 +53,13 @@ The DE optimization iteratively refines a **population** of candidate solutions.
    \end{cases}$$
 
 3. **Selection**: Evaluate both the trial vector and the original vector. Replace $w_i$ with the trial vector if the trial vector yields a lower RMSE.
+$$
+w_i = 
+\begin{cases} 
+\text{trial}_i & \text{if } \text{RMSE}(\text{trial}_i) < \text{RMSE}(w_i) \\
+w_i & \text{otherwise}
+\end{cases}
+$$
 
 #### Termination:
 After a fixed number of generations, the best vector (weights $w$) with the lowest RMSE is considered the optimal solution.
